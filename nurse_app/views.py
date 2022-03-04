@@ -8,7 +8,7 @@ from patient_app.models import Bell
 
 def request_delete_view(request, rq_id):
     obj = get_object_or_404(Bell, id=rq_id)
-    if request.method == "GET":
+    if request.method == "POST":
         obj.delete()
         return redirect('../')
 

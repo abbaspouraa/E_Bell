@@ -26,10 +26,8 @@
                 <td>{{ instance.staff }} </td>
                 <td>{{ instance.time }} </td>
                 <td>
-                    <form action="." method="POST">{% csrf_token %}
-                        <a href="{{ instance.id }}/delete" type="submit">
-                            <button>Dismiss</button>
-                        </a>
+                    <form action="/nurse/{{ instance.id }}/delete" method="POST">{% csrf_token %}
+                        <input type="submit" value="Dismiss" />
                     </form>
                 </td>
             </tr>
