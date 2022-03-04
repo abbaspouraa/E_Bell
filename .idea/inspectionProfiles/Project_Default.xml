@@ -1,0 +1,19 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="school3_d_array" />
+          <option value="school_name_array" />
+          <option value="school_number" />
+          <option value="school_name" />
+          <option value="school_id" />
+          <option value="year" />
+          <option value="school3d_array" />
+          <option value="dataframe" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
