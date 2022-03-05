@@ -16,7 +16,7 @@ messages = {'sos'           :["Need a nurse STAT",                              
             'water-broke'   :["I think my water broke",                          1, "RN",    "N"],
             'pain'          :["I am feeling a lot of pain",                      1, "RN",    "N"],
             'pressure'      :["I am feeling a lot of pressure/urge to push",     1, "RN",    "N"],
-            'vaginal_bleed' :["I am having vaginal bleeding",                    1, "RN",    "N"],
+            'vaginal_bleed' :["I am having vaginal bleeding",                    1, "RN",    "Y"],
             'nausea'        :["I have some nausea",                              2, "RN",    "N"],
             'beeping'       :["Something is beeping in my room",                 2, "RN",    "N"],
             'foley'         :["My foley / Cervidil came out",                    2, "RN",    "N"],
@@ -24,8 +24,8 @@ messages = {'sos'           :["Need a nurse STAT",                              
             'linens'        :["I would like some linens",                        3, "HCA",   "N"],
             'food'          :["I would like some food or water",                 3, "RN",    "N"],
             'settle'        :["I need help getting settled into my room",        3, "HCA",   "N"],
-            'nurse'         :["I have a non-urgent question",                    3, "RN",    "N"],
-            'health-care'   :["I have a non-urgent question",                    3, "HCA",   "N"]
+            'nurse'         :["I have a non-urgent question for my nurse",       3, "RN",    "N"],
+            'health-care'   :["I have a non-urgent question for my HCA",         3, "HCA",   "N"]
             }
 
 
