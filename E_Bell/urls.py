@@ -16,12 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from patient_app.views import home_view
+
 from nurse_app.views import (
     nurse_view,
     request_delete_view
 )
 
 urlpatterns = [
+    path('', home_view),
     path('admin/', admin.site.urls),
     path('nurse/', nurse_view),
     path('nurse/<int:rq_id>/delete', request_delete_view, name='request delete')

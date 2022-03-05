@@ -24,7 +24,8 @@
                 <td>{{ instance.priority }} </td>
                 <td>{{ instance.emergency }} </td>
                 <td>{{ instance.staff }} </td>
-                <td>{{ instance.time }} </td>
+{#                | timesince#}
+                <td> {{ instance.time }} </td>
                 <td>
                     <form action="/nurse/{{ instance.id }}/delete" method="POST">{% csrf_token %}
                         <input type="submit" value="Dismiss" />
@@ -35,5 +36,6 @@
 
     </tbody>
     </table>
+
 {% endblock %}
 
