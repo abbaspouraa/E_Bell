@@ -10,10 +10,21 @@ non_medical_need_list = ['bathroom', 'linens', 'food', 'settle']
 question_list = ['nurse', 'health-care']
 room_number = 0
 
-messages = ["STAT call"]
-priorities = [1]
-staff_types = ["RN"]
-is_emergency = ['Y']
+messages = {'sos'           :["Need a nurse STAT",                               1, "RN",    "Y"],
+            'water-broke'   :["I think my water broke",                          1, "RN",    "N"],
+            'pain'          :["I am feeling a lot of pain",                      1, "RN",    "N"],
+            'pressure'      :["I am feeling a lot of pressure/urge to push",     1, "RN",    "N"],
+            'vaginal_bleed' :["I am having vaginal bleeding",                    1, "RN",    "N"],
+            'nausea'        :["I have some nausea",                              2, "RN",    "N"],
+            'beeping'       :["Something is beeping in my room",                 2, "RN",    "N"],
+            'foley'         :["My foley / Cervidil came out",                    2, "RN",    "N"],
+            'bathroom'      :["I need help to the bathroom",                     2, "RN",    "N"],
+            'linens'        :["I would like some linens",                        3, "HCA",   "N"],
+            'food'          :["I would like some food or water",                 3, "RN",    "N"],
+            'settle'        :["I need help getting settled into my room",        3, "HCA",   "N"],
+            'nurse'         :["I have a non-urgent question",                    3, "RN",    "N"],
+            'health-care'   :["I have a non-urgent question",                    3, "HCA",   "N"]
+            }
 
 
 def domain(request, *args, **kwargs):
@@ -43,19 +54,11 @@ def request_sent(request, *args, **kwargs):
 
     for key in req.keys():
         if key in emergency_medical_need_list or key in non_medical_need_list or key in question_list:
-            print(key)
-            idx = 0
-            if key == "sos":
-                idx = 0
-            else:
-                # TODO add other button types
-                idx = -1
-
             try:
-                patient_request = forms.Bell(message=messages[idx],
-                                             priority=priorities[idx],
-                                             staff=staff_types[idx],
-                                             emergency=is_emergency[idx],
+                patient_request = forms.Bell(message=messages[key][0],
+                                             priority=messages[key][1],
+                                             staff=messages[key][2],
+                                             emergency=messages[key][3],
                                              room_number=room_number)
                 patient_request.save()
             except:
