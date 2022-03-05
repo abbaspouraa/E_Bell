@@ -1,8 +1,9 @@
-<html>
+{%extends 'base.html'%}
+{%block content%}
 <body>
 <center>
-
-    <h1>Room Number {{room_number}}, How Can we Help You Today? 🏥👩‍⚕️👨‍⚕️</h1>
+<!--Room Number {{room_number}}, -->
+    <h1>How Can we Help You Today? 🏥👩‍⚕️👨‍⚕️</h1>
 
     <form method="POST" action="/requestsent/"> {% csrf_token %}
         <button style="background-color:black;color:red;height:75px;width:300px" name="sos">
@@ -38,4 +39,4 @@
     </form>
 </center>
 </body>
-</html>
+{%endblock content%}

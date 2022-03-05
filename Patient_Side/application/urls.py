@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
 from Patient import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', views.domain, name='domain'),
@@ -28,3 +28,4 @@ urlpatterns = [
     path('nonurgentquestion/', views.non_urgent_question, name='nonurgentquestion'),
     path('admin/', admin.site.urls),
 ]
+urlpatterns += staticfiles_urlpatterns()

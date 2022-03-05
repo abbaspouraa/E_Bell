@@ -8,7 +8,7 @@ emergency_medical_need_list = ['sos', 'vaginal_bleed', 'baby', 'water-broke', 'p
                                'beeping', 'foley', 'help']
 non_medical_need_list = ['bathroom', 'linens', 'food', 'settle']
 question_list = ['nurse', 'health-care']
-room_number = 0
+global room_number
 
 messages = {'sos'           :["Need a nurse STAT",                               1, "RN",    "Y"],
             'water-broke'   :["I think my water broke",                          1, "RN",    "N"],
@@ -36,6 +36,7 @@ def get_room_number(request, *args, **kwargs):
 
 
 def home_view(request, *args, **kwargs):
+    global room_number
     room_number = request.POST.get("input_number")
     print(room_number)
     return render(request, "home.html", {"room_number": room_number})
@@ -51,8 +52,9 @@ def non_medical_need(request, *args, **kwargs):
 
 def request_sent(request, *args, **kwargs):
     req = request.POST
-
+    print(room_number)
     for key in req.keys():
+
         if key in emergency_medical_need_list or key in non_medical_need_list or key in question_list:
             try:
                 patient_request = forms.Bell(message=messages[key][0],
