@@ -1,14 +1,11 @@
 from django import forms
-from .models import Patient
+from .models import Bell
 
 
-class PatientForm(forms.ModelForm):
-    class Meta:
-        model = Patient
-        fields = [
-            'number'
-        ]
-
-
-class GetNumber(forms.Form):
-    number = forms.NumberInput()
+class BellForm(forms.Form):
+    message = forms.CharField(max_length=120)
+    priority = forms.IntegerField()
+    staff = forms.CharField(max_length=10)
+    emergency = forms.CharField(max_length=5)
+    room_number = forms.IntegerField()
+    time = forms.TimeField()

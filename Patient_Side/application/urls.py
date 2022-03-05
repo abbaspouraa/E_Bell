@@ -18,6 +18,7 @@ from django.urls import path
 from Patient import views
 
 urlpatterns = [
+    path('', views.domain, name='domain'),
     path('home/', views.home_view, name='home'),
     path('medicalneed/', views.medical_need, name='medicalneed'),
     path('nonmedicalneed/', views.non_medical_need, name='nonmedicalneed'),
