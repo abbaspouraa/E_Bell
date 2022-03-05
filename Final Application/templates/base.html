@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="container" lang="en">
 <p style="">
 <center>
     {% load static %} <img src="{% static 'Patient/media/logo_E_Bell_1.png' %}"/>
@@ -14,9 +14,11 @@
 <body>
 <!--<h1 class="alert alert-danger">University of Calgary</h1>-->
 <center>
-    <h2 class="alert alert-primary">E Bell System</h2>
-
+    <h1 class="p-3 mb-2 bg-dark text-white">
+        Welcome to Hospital Call Bell... 🏥👩‍⚕️👨‍⚕️
+    </h1>
 </center>
+
     {% block content %}
 replace me
     {% endblock %}

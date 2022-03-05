@@ -6,22 +6,24 @@
     <h1>Please choose the question that is the best fit for you!<br>
         We will be here shortly 🏥👩‍⚕️👨‍⚕️</h1>
 
+    {% include "emergency_button.html" %}
+
     <form method="POST" action="/requestsent/"> {% csrf_token %}
-        <button style="background-color:lightgreen;color:white;height:50px;width:400px;font-size:1vw    " name="nurse">
-            I have a question from my nurse &#x2753;
+        <button class="btn btn-success" style="50px;width:400px" name="nurse">
+            &#x2753 I have a question from my nurse &#x2753;
 
         </button>
     </form>
 
     <form method="POST" action="/requestsent/"> {% csrf_token %}
-        <button style="background-color:lightgreen;color:white;height:50px;width:400px;font-size:0.9vw" name="health-care">
-            I have a question from the health care aide &#x2753;
+        <button class="btn btn-success" style="50px;width:400px" name="health-care">
+            &#x2753 I have a question from the health care aide &#x2753;
 
         </button>
     </form>
 
     <form action="/home/"> {% csrf_token %}
-        <button style="background-color:white;font-size:2vw">
+        <button class="btn btn-info" style="font-size:2vw">
             &#128281;
         </button>
     </form>

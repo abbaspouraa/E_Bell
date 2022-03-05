@@ -3,37 +3,31 @@
 <body>
 <center>
 <!--Room Number {{room_number}}, -->
-    <h1>How Can we Help You Today? 🏥👩‍⚕️👨‍⚕️</h1>
+    <h1 class="p-3 mb-2 bg-light text-dark">How Can we Help You Today?</h1>
 
-    <form method="POST" action="/requestsent/"> {% csrf_token %}
-        <button style="background-color:black;color:red;height:75px;width:300px" name="sos">
-            Emergency -> &#x1F198;
-            <- Emergency
-        </button>
-
-    </form>
+    {% include "emergency_button.html" %}
 
     <form method="GET" action="/medicalneed/"> {% csrf_token %}
-        <button style="background-color:red;height:75px;width:300px">
+        <button class="btn btn-warning" style="height:75px;width:300px">
             I have a medical need or an urgent request &#128105;
         </button>
     </form>
 
     <form method="GET" action="/nonmedicalneed/"> {% csrf_token %}
-        <button style="background-color:lightgreen;height:75px;width:300px">
+        <button class="btn btn-light" style="height:75px;width:300px">
             I have a non-medical need &#x1F6BD;&#x2615;
         </button>
     </form>
 
     <form method="GET" action="/nonurgentquestion/"> {% csrf_token %}
-        <button style=";height:75px;width:300px">
+        <button class="btn btn-link" style="height:75px;width:300px">
             I have a non-urgent question &#10067;
 
         </button>
     </form>
 
     <form action="/roomnumber/"> {% csrf_token %}
-        <button style="background-color:white;font-size:2vw">
+        <button class="btn btn-info" style="font-size:2vw">
             &#128281;
         </button>
     </form>

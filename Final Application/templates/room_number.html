@@ -1,18 +1,14 @@
-{%extends 'base.html'%}
+{%extends 'domain.html'%}
+
 {%block content%}
 <body>
 <center>
-<h1>
-    Welcome to Hospital Call Bell... 🏥👩‍⚕️👨‍⚕️
-</h1>
     <form method="POST" action="/home/"> {% csrf_token %}
-            Please insert room number and click login...
+            <h3 class="alert alert-info">Please insert room number and click login...</h3>
         <input type="text" value="" style="height:20px;width:45px;" name="input_number">
-        <button type="submit">
+        <button class="btn btn-success" type="submit">
             Login
         </button>
-
-
     </form>
 
 </center>
