@@ -18,11 +18,13 @@ from django.urls import path
 
 from nurse_app.views import (
     nurse_view,
-    request_delete_view
+    request_delete_view,
+    showing_req
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('nurse/', nurse_view),
+    path('nurse/ajax/showing_req', showing_req, name="showing_req"),
     path('nurse/<int:rq_id>/delete', request_delete_view, name='request delete')
 ]

@@ -14,26 +14,59 @@
             <th scope="col">Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="nurse_app">
+    {% csrf_token %}
         <!-- Your rows inside the table HERE: -->
 
-        {% for instance in object_list %}
-            <tr>
-                <td>{{ instance.room_number }} </td>
-                <td>{{ instance.message }} </td>
-                <td>{{ instance.priority }} </td>
-                <td>{{ instance.emergency }} </td>
-                <td>{{ instance.staff }} </td>
-                <td>{{ instance.time }} </td>
-                <td>
-                    <form action="/nurse/{{ instance.id }}/delete" method="POST">{% csrf_token %}
-                        <input type="submit" value="Dismiss" />
-                    </form>
-                </td>
-            </tr>
-        {% endfor %}
+<!--        {% for instance in object_list %}-->
+<!--            <tr>-->
+<!--                <td>{{ instance.room_number }} </td>-->
+<!--                <td>{{ instance.message }} </td>-->
+<!--                <td>{{ instance.priority }} </td>-->
+<!--                <td>{{ instance.emergency }} </td>-->
+<!--                <td>{{ instance.staff }} </td>-->
+<!--                <td>{{ instance.time }} </td>-->
+<!--                <td>-->
+<!--                    <form action="/nurse/{{ instance.id }}/delete" method="POST">{% csrf_token %}-->
+<!--                        <input type="submit" value="Dismiss" />-->
+<!--                    </form>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        {% endfor %}-->
 
     </tbody>
     </table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+
+    setInterval(function()
+    {
+   $.ajax({
+        type: 'GET',
+        url: "{% url 'showing_req' %}",
+        success: function(response){
+            console.log(response)
+        $("#nurse_app").empty();
+        for (var key in response.object_list)
+        {
+            var temp = "<tr><th scope= 'row'>" + response.object_list[key].room_number + "</th><td>" +response.object_list[key].message+
+            "</td><td>" + response.object_list[key].priority + "</td><td>" + response.object_list[key].emergency +
+            "</td><td>" + response.object_list[key].staff + "</td><td>" + response.object_list[key].time+
+            "</td><td><form action=/nurse/" + response.object_list[key].id + "/delete method='GET'><input type='submit' value='Accept'/></form></td><tr>";
+            $("#nurse_app").append(temp);
+        }
+        },
+        error: function(response){
+            alert("NO DATA FOUND")
+        }
+    });
+    },1000);
+
+});
+</script>
 {% endblock %}
 
