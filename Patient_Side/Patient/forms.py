@@ -1,8 +1,10 @@
 from django import forms
-from .models import Bell
+
+from Patient.models import Bell
 
 
 class BellForm(forms.Form):
+     
     message = forms.CharField(max_length=120)
     priority = forms.IntegerField()
     staff = forms.CharField(max_length=10)

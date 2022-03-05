@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class PatientRequest(models.Model):
+class Bell(models.Model):
     message = models.CharField(max_length=120)
     priority = models.IntegerField(default=1)
     staff = models.CharField(max_length=10)
