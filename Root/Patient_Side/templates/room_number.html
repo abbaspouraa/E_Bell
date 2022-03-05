@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%block content%}
+<body>
+<center>
+<h1>
+    Welcome to Hospital Call Bell... 🏥👩‍⚕️👨‍⚕️
+</h1>
+    <form method="POST" action="/home/"> {% csrf_token %}
+            Please insert room number and click login...
+        <input type="text" value="" style="height:20px;width:45px;" name="input_number">
+        <button type="submit">
+            Login
+        </button>
+
+
+    </form>
+
+</center>
+
+</body>
+{%endblock content%}
