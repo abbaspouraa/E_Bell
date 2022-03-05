@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <meta http-equiv="refresh" content="30"/>
+    <script>
+       setTimeout(function() {
+            location.reload();
+        }, 3000);
+    </script>
+
     <table class="table table-hover table-dark">
     <thead >
         <tr >
@@ -16,7 +23,6 @@
     </thead>
     <tbody>
         <!-- Your rows inside the table HERE: -->
-
         {% for instance in object_list %}
             <tr>
                 <td>{{ instance.room_number }} </td>
