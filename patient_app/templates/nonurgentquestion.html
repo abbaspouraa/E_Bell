@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block content%}
+<body>
+<center>
+
+    <h1>Please choose the question that is the best fit for you!<br>
+        We will be here shortly 🏥👩‍⚕️👨‍⚕️</h1>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button style="background-color:lightgreen;color:white;height:50px;width:400px;font-size:1vw    " name="nurse">
+            I have a question from my nurse &#x2753;
+
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button style="background-color:lightgreen;color:white;height:50px;width:400px;font-size:0.9vw" name="health-care">
+            I have a question from the health care aide &#x2753;
+
+        </button>
+    </form>
+
+    <form action="/home/"> {% csrf_token %}
+        <button style="background-color:white;font-size:2vw">
+            &#128281;
+        </button>
+    </form>
+
+</center>
+</body>
+{%endblock content%}

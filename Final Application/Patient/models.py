@@ -8,4 +8,9 @@ class Bell(models.Model):
     staff = models.CharField(max_length=10)
     emergency = models.CharField(max_length=5)
     room_number = models.IntegerField()
-    time = models.TimeField(auto_now_add=True)
+    time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-time']
+
+
