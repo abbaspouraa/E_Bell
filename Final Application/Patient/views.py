@@ -88,7 +88,9 @@ def nurse_view(request):
     this_minute = int(datetime.now().minute)
 
     for b in queryset:
-        passed_minutes = abs(b.time.minute - this_minute)
+        passed_minutes = 0
+        if b.time is not None:
+            passed_minutes = abs(b.time.replace(tzinfo=None) - datetime.now()).seconds/60
         if passed_minutes < 2:
             b.danger_mode = "green"
         elif 5 > passed_minutes >= 2:

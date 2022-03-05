@@ -32,7 +32,7 @@
                 >{% if instance.emergency == 'Y' %}Emergency{% else %}Non-emergency{% endif %} </td>
                 <td>{{ instance.staff }}</td>
                 <td class="btn btn-{% if instance.danger_mode == 'red' %}danger{% elif instance.danger_mode == 'green' %}success{% else %}warning{% endif %}"
-                > {{ instance.time }} </td>
+                > {{ instance.time|timesince }} </td>
                 <td>
                     <form action="/nurse/{{ instance.id }}/delete" method="POST">{% csrf_token %}
                         <input type="submit" value="Accept" class="btn btn-primary"/>
