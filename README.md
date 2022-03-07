@@ -1,5 +1,4 @@
-# hackathon-e-bell-nursing-2022-hackathon-g4
-EBell project
+# EBell project
 Developed by Django
 
 # Sample pictures of the project
