@@ -85,12 +85,11 @@ def request_delete_view(request, rq_id):
 
 def nurse_view(request):
     queryset = Bell.objects.all()
-    this_minute = int(datetime.now().minute)
 
     for b in queryset:
-        passed_minutes = 0
-        if b.time is not None:
-            passed_minutes = abs(b.time.replace(tzinfo=None) - datetime.now()).seconds/60
+        passed_minutes = abs(datetime.now().minute - b.time.replace(tzinfo=None).minute) + \
+                            (datetime.now().second - b.time.replace(tzinfo=None).second)/60
+        # b.test = passed_minutes
         if passed_minutes < 2:
             b.danger_mode = "green"
         elif 5 > passed_minutes >= 2:
