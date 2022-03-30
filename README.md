@@ -1,5 +1,6 @@
 # EBell project
-Developed by Django
+Developed by Django and deployed on AWS Elastic Beanstalk
+Link: http://django-env.eba-hd8xjscy.us-west-2.elasticbeanstalk.com/
 
 # Sample pictures of the project
 ![image](https://user-images.githubusercontent.com/83620288/156901104-9eb7627d-16d8-443d-bbd1-4ca6595790ce.png)
